@@ -4,21 +4,18 @@ import java.util.*;
 
 public class EmployeeWageComputation {
 
-	public static void main(String[] args) {
+	public static int wagePerHour = 20;
+	public static int fullDayHours = 8;
+	public static int halfDayHours = 4;
+	public static int salary = 0;
+	public static int monthlysalary = 0;
+	public static int workingDaysPerMonth = 20;
+	public static int days = 0;
+	public static int monthlyHours = 0;
 
+	public static int EmpWage() {
 		System.out.println("Welcome to Employee Wage Computation Program");
-		
-
 		Random random = new Random();
-
-		int wagePerHour = 20;
-		int fullDayHours = 8;
-		int halfDayHours = 4;
-		int salary = 0;
-		int monthlysalary = 0;
-		int workingDaysPerMonth = 20;
-		int days = 0;
-		int monthlyHours = 0;
 
 		while (days != 20 && monthlyHours != 100) {
 			days++;
@@ -27,25 +24,26 @@ public class EmployeeWageComputation {
 			switch (randomNum) {
 
 			case 0:
-				// System.out.println("Employee is absent");
-				// System.out.println("Salary wil be:~ ");
+				//System.out.println("Employee is absent");
 				break;
 			case 1:
-				// System.out.println("Employee is Present For Full Day");
 				System.out.println("salary for Full Day :~ ");
 				salary = wagePerHour * fullDayHours;
 				break;
 			case 2:
-				// System.out.println("Employee is present for Half Day");
 				System.out.println("Salary for Half Day:~ ");
 				salary = wagePerHour * halfDayHours;
 
 			}
 			monthlysalary = monthlysalary + salary;
 			System.out.println("Day " + days + " Salary is:" + salary);
-
 		}
+
 		System.out.println("Monthly Salary:~" + monthlysalary);
+		return monthlysalary;
 	}
 
+	public static void main(String[] args) {
+		EmpWage();
+	}
 }
