@@ -3,47 +3,69 @@ package com.Emp;
 import java.util.*;
 
 public class EmployeeWageComputation {
+	public static final int halfDayHours = 4;
+	public static final int fullDayHours = 8;
 
-	public static int wagePerHour = 20;
-	public static int fullDayHours = 8;
-	public static int halfDayHours = 4;
-	public static int salary = 0;
-	public static int monthlysalary = 0;
-	public static int workingDaysPerMonth = 20;
-	public static int days = 0;
-	public static int monthlyHours = 0;
+	private final String companyName;
+	private final int WagePerHour;
+	private final int workingHours;
+	private final int workingDays;
+	
+	static Random random = new Random();
 
-	public static int EmpWage() {
-		System.out.println("Welcome to Employee Wage Computation Program");
-		Random random = new Random();
+	public EmployeeWageComputation(String companyName, int wagePerHour, int workingHours, int workingDays) {
+		this.companyName = companyName;
+		this.WagePerHour = wagePerHour;
+		this.workingDays = workingDays;
+		this.workingHours = workingHours;
 
-		while (days != 20 && monthlyHours != 100) {
+	}
+
+	public int calculateWage() {
+		int salary = 0;
+		int totalSalary = 0;
+		int totalWorkingHours = 0;
+		int days = 0;
+
+		while (totalWorkingHours <= workingHours && days <= workingDays) {
 			days++;
-			int randomNum = random.nextInt(3);
+			int empCheck = random.nextInt(3);
 
-			switch (randomNum) {
-
-			case 0:
-				//System.out.println("Employee is absent");
-				break;
+			switch (empCheck) {
 			case 1:
-				System.out.println("salary for Full Day :~ ");
-				salary = wagePerHour * fullDayHours;
+
+				System.out.println("Present Fullday.");
+				salary = WagePerHour * fullDayHours;
+				totalWorkingHours = totalWorkingHours + fullDayHours;
 				break;
 			case 2:
-				System.out.println("Salary for Half Day:~ ");
-				salary = wagePerHour * halfDayHours;
 
+				System.out.println("Present HalfDay.");
+				salary = WagePerHour * halfDayHours;
+				totalWorkingHours = totalWorkingHours + halfDayHours;
+				break;
+			default:
+				System.out.println("Employee Absent");
 			}
-			monthlysalary = monthlysalary + salary;
-			System.out.println("Day " + days + " Salary is:" + salary);
+			System.out.print("Day: " + days  + empCheck + " ");
+			System.out.print("Working Hours: " + totalWorkingHours + " ");
+			System.out.print("Salary is: " + salary + " ");
+			totalSalary = totalSalary + salary;
 		}
+		return totalWorkingHours * WagePerHour;
 
-		System.out.println("Monthly Salary:~" + monthlysalary);
-		return monthlysalary;
 	}
+
 
 	public static void main(String[] args) {
-		EmpWage();
+		EmployeeWageComputation TCS = new EmployeeWageComputation("TCS", 23, 90, 21);
+		EmployeeWageComputation Honda = new EmployeeWageComputation("Honda", 24, 109, 22);
+		
+		System.out.println("Total employee's wage of Company: " + TCS.companyName + ": " + TCS.calculateWage());
+		 System.out.println("Total employee's wage of Company: " + Honda.companyName + ": " + Honda.calculateWage());
+		
+		
 	}
-}
+
+
+	}
