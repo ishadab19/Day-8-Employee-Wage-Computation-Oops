@@ -1,6 +1,6 @@
 package com.Emp;
 import java.util.*;
-public class EmployeeWage implements interfaceEmpWage {
+public class EmployeeWage implements IEmployeeWage {
 
 	public static final int IS_FULLTIME = 1;
 	public static final int IS_PARTTIME = 2;
