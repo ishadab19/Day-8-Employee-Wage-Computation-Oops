@@ -1,21 +1,19 @@
 package com.Emp;
 
-public class CompanyEmpWage { 				//
-	private String companyName;				//
-	private int wagePerHr;				    //=>Declaration
-	private int totalWorkingDays;     	    //
-	private int totalWorkingHrs;			//
-	private int totalEmpWage;				//
+public class CompanyEmpWage {
+	private String companyName;
+	private int wagePerHr;
+	private int totalWorkingDays;
+	private int totalWorkingHrs;
+	private int totalEmpWage;
 
-	public CompanyEmpWage(String companyName, int wagePerHr, int totalWorkingDays, int totalWorkingHrs, int totalEmpWage) {
-			
-		
-		this.companyName = companyName;				//
-		this.wagePerHr = wagePerHr;					//
-		this.totalWorkingDays = totalWorkingDays;	//=>Initialize
-		this.totalWorkingHrs = totalWorkingHrs;		//
-		this.totalEmpWage = totalEmpWage;			//
-	}				
+	// parametrized constructor
+	public CompanyEmpWage(String companyName, int wagePerHr, int totalWorkingDays, int totalWorkingHrs) {
+		this.companyName = companyName;
+		this.wagePerHr = wagePerHr;
+		this.totalWorkingDays = totalWorkingDays;
+		this.totalWorkingHrs = totalWorkingHrs;
+	}
 
 	public String getCompanyName() {
 		return companyName;
@@ -57,12 +55,10 @@ public class CompanyEmpWage { 				//
 		this.totalEmpWage = totalEmpWage;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "CompanyEmpWage{" + "companyName='" + companyName + '\'' + ", wagePerHr=" + wagePerHr
 				+ ", totalWorkingDays=" + totalWorkingDays + ", totalWorkingHrs=" + totalWorkingHrs + ", totalEmpWage="
 				+ totalEmpWage + '}';
-	
 	}
 }
